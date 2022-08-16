@@ -1,0 +1,41 @@
+@import 'utils/mixins';
+
+body{
+  background: #c4c4c4;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+}
+
+.margin-1{
+    margin: 1rem;
+}
+
+.selected{
+    border: 2px solid cyan;
+}
+
+.selection-wrapper{
+    @include flex($fd: row);
+    .selection-card{
+        @include flex($fd: row);
+
+        width: fit-content;
+        height: fit-content;
+
+        background: gray;
+
+        border-radius: 25px;
+
+        margin: .5rem;
+        padding: 1rem;
+        .img{
+            border-radius: 50%;
+            width:5rem;
+            height:5rem;
+        }
+    }
+}
+

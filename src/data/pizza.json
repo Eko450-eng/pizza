@@ -1,0 +1,37 @@
+{
+  "pizza-configurator": {
+    "toppings": {
+      "vegetables": [
+        "tomatoes",
+        "olives",
+        "artichoke",
+        "paprika",
+        "pepper",
+        "corn",
+        "onions"
+      ],
+      "specials": [
+        "shrimps",
+        "anchovies",
+        "eggs"
+      ],
+      "meat": [{
+            "kind": "mincemeat",
+            "mandatorytoppings": [
+              "tomatoes",
+              "olives"
+            ],
+            "notallowedtoppings": [
+              "corn"
+            ]
+      },
+      {
+          "kind": "salami",
+            "mandatorytoppings": [
+                "pepper"
+          ]
+      }]
+    }
+  }
+}
+

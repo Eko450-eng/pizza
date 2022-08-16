@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# Not related
+FullSizedImages/
+Challenge.pdf
+
 # testing
 /coverage
 

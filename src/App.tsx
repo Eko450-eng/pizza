@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.scss';
+import ToppingPicker from './components/ToppingPicker';
+import { PizzaProvider } from './Contexts/ToppingContext/PizzaContext';
+import { NotificationsProvider } from '@mantine/notifications'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <PizzaProvider>
+      <NotificationsProvider
+        limit={1}
+      >
+        <div className="App">
+          <ToppingPicker />
+        </div>
+      </NotificationsProvider>
+    </PizzaProvider>
   );
 }
 

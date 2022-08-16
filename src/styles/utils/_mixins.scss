@@ -1,0 +1,12 @@
+$jc: center;
+$ac: center;
+$fd: column;
+$fw: wrap;
+
+@mixin flex($jc: $jc, $ac: $ac, $fd: $fd, $fw: $fw){
+    display:flex;
+    justify-content: $jc;
+    flex-direction: $fd;
+    align-items: $ac;
+    flex-wrap: $fw;
+}
