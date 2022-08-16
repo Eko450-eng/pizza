@@ -1,7 +1,8 @@
 import { Button } from "@mantine/core"
 import { usePizzaContext } from "../../Contexts/ToppingContext/PizzaContext"
-import { image } from "../../styles/icons/images"
+import FoodCard from "../FoodCard"
 
+// Interface für die Props
 interface MeatSelectionProps {
     meat: {
         kind: string,
@@ -12,26 +13,27 @@ interface MeatSelectionProps {
 
 function MeatSelection( props: MeatSelectionProps) {
     const { addMeat, meat } = usePizzaContext()
-    console.log(props)
-    const kind = props.meat.kind
 
+    const kind = props.meat.kind
     const selected = meat.has(kind)
+    const picked = meat.size === 1
 
     return <Button
-                className={selected ? "selection-card selected" : "selection-card"}
+                className="card selected"
+
+                // Conditional styling mit mantine ist dies die best practice
+                styles={() => ({
+                        root: {
+                            backgroundColor: selected ? "#A3BE8C" : "#00000000",
+                        },
+                    })}
                 radius="xl"
-                    color={"red"}
-                    onClick={() => {
-                        addMeat(kind, props.meat.mandatorytoppings, props.meat.notallowedtoppings)
-                    }}
+                color={ picked ? "red" : "blue" }
+                onClick={() => addMeat(kind, props.meat.mandatorytoppings, props.meat.notallowedtoppings)}
                 >
 
-                    {
-                        image[kind] &&
-                            <img className="img margin-1" src={image[kind]} title={`An image of delicious looking ${kind}`} alt={`of delicious looking ${kind}`} />
-                    }
+                <FoodCard name={kind}/>
 
-                    { props.meat.kind }
             </Button>
 }
 export default MeatSelection

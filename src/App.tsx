@@ -7,9 +7,7 @@ import { NotificationsProvider } from '@mantine/notifications'
 function App() {
   return (
     <PizzaProvider>
-      <NotificationsProvider
-        limit={1}
-      >
+      <NotificationsProvider limit={1}>
         <div className="App">
           <ToppingPicker />
         </div>
