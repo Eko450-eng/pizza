@@ -34,7 +34,7 @@ function Checkout() {
                     }
                 </ul>
                 {/* Rechne alles zusammen und zeige total */}
-                <h3 className="total-price">{`Your total is ${ total.reduce(( prev, current ) => prev + current, 0) } €` }</h3>
+                <h3 className="total-price">{`Your total is ${(total.reduce((prev, current) => prev + current, 0)).toFixed(2) } €` }</h3>
             </div>
         </DocumentTitle>
     )
