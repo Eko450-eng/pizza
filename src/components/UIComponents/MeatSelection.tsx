@@ -18,6 +18,10 @@ function MeatSelection( props: MeatSelectionProps) {
     const picked = meat.size === 1
 
     return <Button
+                // Accessability
+                aria-label="switch"
+                aria-checked={selected}
+
                 className="card selected"
                 // Bei conditional styling mit mantine ist dies die best practice
                 styles={() => ({

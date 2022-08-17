@@ -10,7 +10,12 @@ function App() {
   return (
     <BrowserRouter>
       <PizzaProvider>
-        <NotificationsProvider limit={1}>
+        <NotificationsProvider
+          limit={1}
+
+          // Accessability for screen readers
+          aria-live="assertive"
+        >
           <div className="App">
             <Routes>
               <Route path="/" element={<ToppingPicker />} />

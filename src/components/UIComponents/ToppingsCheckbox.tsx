@@ -9,6 +9,10 @@ function ToppingsCheckbox({ title, type }:{ title:string, type:string }) {
     const picked = special.size === 1
 
     return <Button
+                // Accessability
+                aria-label="switch"
+                aria-checked={selected}
+
                 className="card"
                 // Conditional styling mit mantine ist dies die best practice
                 styles={() => ({

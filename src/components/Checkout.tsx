@@ -26,7 +26,7 @@ function Checkout() {
                             return <div key={i} className="checkout-wrapper">
                                 {/* Hier teile ich das List item nur auf um es besser stylen zu können in CSS */}
                             <li>
-                                <span style={{ textTransform: "capitalize" }}>{ i } </span>
+                                <span className="capitalize">{ i } </span>
                                 { `${ price } €` }
                             </li>
                             </div>

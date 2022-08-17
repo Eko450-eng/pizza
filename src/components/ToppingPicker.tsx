@@ -34,7 +34,7 @@ const TopingPicker = () => {
 
     return (
         <DocumentTitle title="Pizza Configurator">
-            <div className="topping-picker">
+            <main className="topping-picker">
                 <h1>Welcome, please choose your topping</h1>
 
                 <Sections step="STEP 1" kind="vegetable" data={ vegetablesData } />
@@ -53,45 +53,46 @@ const TopingPicker = () => {
                     </div>
                 </div>
 
-                <h3>Selected Items</h3>
 
-                <div className="selection-wrapper">
-                    { [...vegetables].map(v=>{
-                        return <div key={v}><FoodCard name={v} /></div>
-                    }) }
+                <section>
+                    <h2>Selected Items</h2>
+                    <div className="selection-wrapper">
+                        { [...vegetables].map(v=>{
+                            return <div key={v}><FoodCard name={v} /></div>
+                        }) }
 
-                    { [...special].map(v=>{
-                        return <div key={v}><FoodCard name={v} /></div>
-                    }) }
+                        { [...special].map(v=>{
+                            return <div key={v}><FoodCard name={v} /></div>
+                        }) }
 
-                    {[...meat].map(v => {
-                        return <div key={v}><FoodCard name={v} /></div>
-                    })}
-                </div>
-
-                <Button
-                    color="red"
-                    radius="xl"
-                    uppercase
-                    onClick={()=>handleOrder()}
-                    styles={() => ({
-                            root: {
-                                border: 0,
-                                height: 100,
-                                paddingInline: 20,
-                                marginBottom: 70,
-                                fontSize: 20,
-                                '&:hover': {
-                                    backgroundColor: "#A3BE8C",
-                                },
-                            },
+                        {[...meat].map(v => {
+                            return <div key={v}><FoodCard name={v} /></div>
                         })}
+                    </div>
 
-                >
-                    Order Now
-                </Button>
+                    <Button
+                        color="red"
+                        radius="xl"
+                        uppercase
+                        onClick={()=>handleOrder()}
+                        styles={() => ({
+                                root: {
+                                    border: 0,
+                                    height: 100,
+                                    paddingInline: 20,
+                                    marginBottom: 70,
+                                    fontSize: 20,
+                                    '&:hover': {
+                                        backgroundColor: "#A3BE8C",
+                                    },
+                                },
+                            })}
 
-            </div>
+                    >
+                        Order Now
+                    </Button>
+                </section>
+            </main>
         </DocumentTitle>
     )
 }
