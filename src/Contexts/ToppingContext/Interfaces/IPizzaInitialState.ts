@@ -1,3 +1,3 @@
 export interface IPizzaInitialState {
-    children?: React.ReactNode
+  children?: React.ReactNode
 }

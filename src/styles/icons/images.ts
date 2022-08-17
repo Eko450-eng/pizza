@@ -13,19 +13,19 @@ import pepper from './Assets/pepper-min.webp'
 import salami from './Assets/salami-min.webp'
 import mincemeat from './Assets/mincedmeat-min.webp'
 
-export const image: Record<string,string> = {
-    eggs,
-    mincemeat,
-    salami,
-    onions,
-    olives,
-    anchovies,
-    paprika,
-    peppers,
-    salamis,
-    shrimps,
-    tomatoes,
-    artichoke,
-    pepper,
-    corn,
+export const image: Record<string, string> = {
+	eggs,
+	mincemeat,
+	salami,
+	onions,
+	olives,
+	anchovies,
+	paprika,
+	peppers,
+	salamis,
+	shrimps,
+	tomatoes,
+	artichoke,
+	pepper,
+	corn,
 }

@@ -15,23 +15,24 @@
         "anchovies",
         "eggs"
       ],
-      "meat": [{
-            "kind": "mincemeat",
-            "mandatorytoppings": [
-              "tomatoes",
-              "olives"
-            ],
-            "notallowedtoppings": [
-              "corn"
-            ]
-      },
-      {
-          "kind": "salami",
-            "mandatorytoppings": [
-                "pepper"
+      "meat": [
+        {
+          "kind": "mincemeat",
+          "mandatorytoppings": [
+            "tomatoes",
+            "olives"
+          ],
+          "notallowedtoppings": [
+            "corn"
           ]
-      }]
+        },
+        {
+          "kind": "salami",
+          "mandatorytoppings": [
+            "pepper"
+          ]
+        }
+      ]
     }
   }
 }
-
