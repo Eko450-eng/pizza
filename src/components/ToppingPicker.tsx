@@ -1,9 +1,12 @@
 import { usePizzaContext } from '../Contexts/ToppingContext/PizzaContext'
-import ToppingsCheckbox from './SelectionsViews/ToppingsCheckbox'
 import data from '../data/pizza.json'
-import MeatSelection from './SelectionsViews/MeatSelection';
-import FoodCard from './FoodCard';
 import { Button } from '@mantine/core';
+import { useNavigate } from 'react-router-dom';
+import { errorNotification } from '../Helpers/Notifications';
+import Sections from './UIComponents/Sections';
+import MeatSelection from './UIComponents/MeatSelection';
+import FoodCard from './UIComponents/FoodCard';
+import DocumentTitle from 'react-document-title'
 
 interface IPizzaType {
     meat: {
@@ -16,94 +19,80 @@ interface IPizzaType {
 }
 
 const pizzaData = data['pizza-configurator'].toppings as IPizzaType
-
-const vegetable = pizzaData.vegetables;
-const specials = pizzaData.specials;
-const meats = pizzaData.meat;
+const vegetablesData = pizzaData.vegetables;
+const specialsData = pizzaData.specials;
+const meatsData = pizzaData.meat;
 
 const TopingPicker = () => {
+    const navigate = useNavigate()
     const { vegetables, special, meat } = usePizzaContext()
 
+    const handleOrder = () =>{
+        if(vegetables.size !== 0) return navigate("/checkout")
+        errorNotification("Please choose at least one vegetable!")
+    }
+
     return (
-        <div className="topping-picker">
-            <h1>CHOOSE YOUR TOPPING</h1>
-            <div className="sections">
-                <div>
-                    <h2>STEP 1</h2>
-                    <h3>Vegetables</h3>
-                </div>
-                <div className="selection-wrapper">
-                    {vegetable.map((vegetable) => {
-                        return <ToppingsCheckbox key={vegetable} type={"vegetable"} title={vegetable} />
-                    })}
-                </div>
-            </div>
+        <DocumentTitle title="Pizza Configurator">
+            <div className="topping-picker">
+                <h1>Welcome, please choose your topping</h1>
 
-            <div className="sections">
-                <div>
-                    <h2>STEP 2</h2>
-                    <h3>Specials</h3>
+                <Sections step="STEP 1" kind="vegetable" data={ vegetablesData } />
+                <Sections step="STEP 2" kind="special" data={ specialsData } />
+
+                <div className="sections">
+                    <div>
+                        <h2>STEP 3</h2>
+                        <h3>Meat</h3>
+                    </div>
+
+                    <div className="selection-wrapper">
+                        {meatsData.map((meat) => {
+                            return <MeatSelection key={meat.kind} meat={meat} />
+                        })}
+                    </div>
                 </div>
 
-
-                <div className="selection-wrapper">
-                    {specials.map((special) => {
-                        return <ToppingsCheckbox key={special} type={"special"} title={special} />
-                    })}
-                </div>
-            </div>
-
-            <div className="sections">
-                <div>
-                    <h2>STEP 3</h2>
-                    <h3>Meat</h3>
-                </div>
+                <h3>Selected Items</h3>
 
                 <div className="selection-wrapper">
-                    {meats.map((meat) => {
-                        return <MeatSelection key={meat.kind} meat={meat} />
+                    { [...vegetables].map(v=>{
+                        return <div key={v}><FoodCard name={v} /></div>
+                    }) }
+
+                    { [...special].map(v=>{
+                        return <div key={v}><FoodCard name={v} /></div>
+                    }) }
+
+                    {[...meat].map(v => {
+                        return <div key={v}><FoodCard name={v} /></div>
                     })}
                 </div>
-            </div>
 
-            <h3>Selected Items</h3>
-
-            <div className="selection-wrapper">
-                { [...vegetables].map(v=>{
-                    return <div key={v}><FoodCard name={v} /></div>
-                }) }
-
-                { [...special].map(v=>{
-                    return <div key={v}><FoodCard name={v} /></div>
-                }) }
-
-                {[...meat].map(v => {
-                    return <div key={v}><FoodCard name={v} /></div>
-                })}
-            </div>
-
-            <Button
-                color="red"
-                radius="xl"
-                uppercase
-                styles={(theme) => ({
-                        root: {
-                            border: 0,
-                            height: 100,
-                            paddingLeft: 80,
-                            paddingRight: 80,
-                            fontSize: 50,
-                            '&:hover': {
-                                backgroundColor: "#A3BE8C",
+                <Button
+                    color="red"
+                    radius="xl"
+                    uppercase
+                    onClick={()=>handleOrder()}
+                    styles={() => ({
+                            root: {
+                                border: 0,
+                                height: 100,
+                                paddingInline: 20,
+                                marginBottom: 70,
+                                fontSize: 20,
+                                '&:hover': {
+                                    backgroundColor: "#A3BE8C",
+                                },
                             },
-                        },
-                    })}
+                        })}
 
-            >
-                Order Now
-            </Button>
+                >
+                    Order Now
+                </Button>
 
-        </div>
+            </div>
+        </DocumentTitle>
     )
 }
 
