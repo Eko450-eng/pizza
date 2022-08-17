@@ -9,7 +9,8 @@
 ## Starten des Projektes
 
 Um den Pizza Konfigurator zu starten, gibt es mehrere Wege,
-1. Das Repository herunterladen und in der Development Umgebung nutzen
+1. Die live demo nutzen auf [Vercel](https://pizza-ten-omega.vercel.app/)
+2. Das Repository herunterladen und in der Development Umgebung nutzen
 ```
 $ git clone https://github.com/Eko450-eng/pizza
 $ cd pizza
