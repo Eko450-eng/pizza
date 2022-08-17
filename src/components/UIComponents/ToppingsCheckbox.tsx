@@ -10,7 +10,7 @@ function ToppingsCheckbox({ title, type }:{ title:string, type:string }) {
 
     return <Button
                 // Accessability
-                aria-label="switch"
+                role="switch"
                 aria-checked={selected}
 
                 className="card"

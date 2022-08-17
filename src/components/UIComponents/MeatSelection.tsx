@@ -19,7 +19,7 @@ function MeatSelection( props: MeatSelectionProps) {
 
     return <Button
                 // Accessability
-                aria-label="switch"
+                role="switch"
                 aria-checked={selected}
 
                 className="card selected"

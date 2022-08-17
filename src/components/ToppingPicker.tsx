@@ -40,7 +40,7 @@ const TopingPicker = () => {
                 <Sections step="STEP 1" kind="vegetable" data={ vegetablesData } />
                 <Sections step="STEP 2" kind="special" data={ specialsData } />
 
-                <div className="sections">
+                <section className="sections">
                     <div>
                         <h2>STEP 3</h2>
                         <h3>Meat</h3>
@@ -51,10 +51,10 @@ const TopingPicker = () => {
                             return <MeatSelection key={meat.kind} meat={meat} />
                         })}
                     </div>
-                </div>
+                </section>
 
 
-                <section>
+                <section className="sections" style={{ flexDirection: "column" }}>
                     <h2>Selected Items</h2>
                     <div className="selection-wrapper">
                         { [...vegetables].map(v=>{
@@ -82,6 +82,7 @@ const TopingPicker = () => {
                                     paddingInline: 20,
                                     marginBottom: 70,
                                     fontSize: 20,
+                                    color:"black",
                                     '&:hover': {
                                         backgroundColor: "#A3BE8C",
                                     },
